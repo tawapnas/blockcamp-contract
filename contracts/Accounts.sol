@@ -58,7 +58,6 @@ contract Accounts {
     }
 
     function addAccount(string memory _name) public uniqueAccountName(_name) {
-        require(msg.sender != address(0));
         no_of_accounts ++;
         accounts.push(Account(no_of_accounts, _name, 0, msg.sender));
     }
@@ -118,10 +117,3 @@ contract Accounts {
     }
 
 }
-
-// Accounts.deployed().then(function(instance) { return instance.allAccounts() })
-// Accounts.deployed().then(function(instance) { return instance.addAccount("Account A") })
-// Accounts.deployed().then(function(instance) { return instance.getAccount(0) })
-// Accounts.deployed().then(function(instance) { return instance.deposit("Account A",{value: web3.utils.toWei("3", 'ether')}) })
-// Accounts.deployed().then(function(instance) { return instance.withdraw("Account A", web3.utils.toWei("1", 'ether')) })
-// Accounts.deployed().then(function(instance) { return instance.transfer("Account A", "Account B", web3.utils.toWei("1", 'ether')) })
